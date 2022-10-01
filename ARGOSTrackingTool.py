@@ -26,19 +26,20 @@ date_dict = {}
 location_dict = {}
 
 for line in line_list:
+    
     if line[0] in ('#', 'u'):
         continue
+    
     line_split = line.split()
     record_id = line_split[0]
     obs_date = line_split[2]
     obs_lc = line_split[4]
     obs_lat = line_split[6]
     obs_lon = line_split[7]
-
-    #Print the location of sara
-    print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
     
-    # add observation date and location to dictionaries
-    date_dict[record_id] = obs_date
-    location_dict[record_id] = (obs_lat, obs_lon)
+    if obs_lc in ['1','2','3']:
+        date_dict[record_id] = obs_date
+        location_dict[record_id] = (obs_lat, obs_lon)
+    
+    # print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
 
