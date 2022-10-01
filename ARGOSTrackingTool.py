@@ -57,7 +57,7 @@ for the_key, the_value in date_dict.items():
 # Report whether no keys were found
 if len(matching_keys) == 0:
     print(f"Sara was not located on {user_date}")
-
+else:
     #Reveal locations for each key in matching_keys
     for matching_key in matching_keys:
         obs_lat, obs_lon = location_dict[matching_key]
