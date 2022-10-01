@@ -17,21 +17,14 @@ file_name = './data/raw/Sara.txt'
 file_object = open(file_name,'r')
 
 #Read contents of file into a list
-line = file_object.readline()
+line_list = file_object.readlines()
 
-# for line in line_list:
-#     if line[0] in ('#', 'u'):
-#         continue
-#     line_split = line.split()
-#     record_id = line_split[0]
-#     obs_date = line_split[2]
-#     obs_lc = line_split[4]
-#     obs_lat = line_split[6]
-#     obs_lon = line_split[7]
+#Close the file
+file_object.close()
 
-while line:
+
+for line in line_list:
     if line[0] in ('#', 'u'):
-        line = file_object.readline()
         continue
     line_split = line.split()
     record_id = line_split[0]
@@ -40,5 +33,7 @@ while line:
     obs_lat = line_split[6]
     obs_lon = line_split[7]
 
+
+
 #Print the location of sara
-    print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
